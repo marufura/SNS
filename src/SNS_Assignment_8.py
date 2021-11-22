@@ -26,7 +26,16 @@ def print_stats(network, name):
 
 
 def plot_network(network):
-    nx.draw(network, with_labels=True)
+    pos = nx.spring_layout(network)
+    nx.draw_networkx(network, pos, with_labels=True)
+    plt.axis("off")
+    plt.show()
+
+
+def plot_degree(network):
+    degree_hist = nx.degree_histogram(network)
+    x = range(len(degree_hist))
+    plt.bar(x, degree_hist, width=0.5, bottom=None, align='center')
     plt.show()
 
 
@@ -92,6 +101,10 @@ def main():
     # ネットワークの可視化
     plot_network(Network1)
     plot_network(Network2)
+
+    # 次数分布をプロット
+    plot_degree(Network1)
+    plot_degree(Network2)
 
 
 if __name__ == "__main__":
