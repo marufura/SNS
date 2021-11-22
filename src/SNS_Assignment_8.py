@@ -25,10 +25,6 @@ def print_stats(network, name):
     print()
 
 
-def print_stats_for_latex(network, name):
-    print(name + ':')
-
-
 def plot_network(network):
     nx.draw(network, with_labels=True)
     plt.show()
